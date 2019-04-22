@@ -1,6 +1,1 @@
-#!/usr/bin/env bash
-
-cd ../
-pwd
-ls
-sh bin/build.sh
+bin/build.sh
