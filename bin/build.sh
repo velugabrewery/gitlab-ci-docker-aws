@@ -2,7 +2,16 @@
 
 set -e
 
-source .env
+
+if [ -f .env ]
+then
+    echo "use .env"
+    source .env
+else
+    echo "use ../.env"
+    source ../.env
+fi
+
 
 DOCKER_TAG=${1}
 
