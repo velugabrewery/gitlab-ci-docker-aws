@@ -28,6 +28,7 @@ RUN apk add --no-cache -v --virtual .build-deps \
         python3 \
         py-setuptools \
         zip \
+        gettext \
     && pip install --upgrade \
         awscli==${AWS_CLI_VERSION} \
         awsebcli==${EB_CLI_VERSION} \
