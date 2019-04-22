@@ -15,10 +15,9 @@ function print_usage
     echo "  build.sh latest"
 }
 
-if [[ -z "${DOCKER_TAG}" ]]
+if [[ -z "${IMAGE_NAME}" ]]
 then
-    # Docker Hub build hook
-    if [[ -z "${IMAGE_NAME}" ]]
+    if [[ "${DOCKER_TAG}" ]]
     then
         IMAGE_NAME="gitlab-ci-docker-aws:${DOCKER_TAG}"
     else
@@ -26,10 +25,6 @@ then
         print_usage
         exit 1
     fi
-fi
-if [[ -z "${IMAGE_NAME}" ]]
-then
-    IMAGE_NAME="gitlab-ci-docker-aws:${DOCKER_TAG}"
 fi
 
 echo "=> Building start with args"
