@@ -7,9 +7,9 @@
 - python3
 - node, npm, yarn
 - docker-compose
-- aws-cli, ecs-cli, awsebcli, s3cmd, chamber
+- aws-cli, ecs-cli, awsebcli, s3cmd, chamber, pre-commit
 - git, jq, mysql-client
-- gettext
+- gettext, gcc
 
 ## To build
 ```bash
