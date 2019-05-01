@@ -7,7 +7,7 @@
 - python3
 - node, npm, yarn
 - docker-compose
-- aws-cli, ecs-cli, awsebcli, s3cmd, chamber, pre-commit
+- aws-cli, ecs-cli, s3cmd, chamber, pre-commit
 - git, jq, mysql-client
 - gettext, gcc
 

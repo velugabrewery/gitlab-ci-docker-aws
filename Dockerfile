@@ -5,7 +5,6 @@ FROM library/docker:stable
 ARG CONTAINER_ARCHITECTURE=linux-amd64
 ARG AWS_CLI_VERSION
 ARG ECS_CLI_VERSION
-ARG EB_CLI_VERSION
 ARG S3_CMD_VERSION
 ARG DOCKER_COMPOSE_VERSION
 ARG CHAMBER_VERSION
@@ -33,9 +32,8 @@ RUN apk add --no-cache -v --virtual .build-deps \
         zip \
         gettext \
         gcc \
-    && pip install --upgrade \
+    && pip3 install --upgrade \
         awscli==${AWS_CLI_VERSION} \
-        awsebcli==${EB_CLI_VERSION} \
         s3cmd==${S3_CMD_VERSION} \
         docker-compose==${DOCKER_COMPOSE_VERSION} \
         python-magic \
@@ -48,6 +46,10 @@ RUN apk add --no-cache -v --virtual .build-deps \
 && rm -r /root/.cache \
 && apk del -v .build-deps \
 && rm /var/cache/apk/*
+
+# link python3 as default
+RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
 
 # Install Node.js
 # https://github.com/mhart/alpine-node#example-dockerfile-for-your-own-nodejs-project
