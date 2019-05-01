@@ -29,6 +29,7 @@ RUN apk add --no-cache -v --virtual .build-deps \
         python3 \
         python3-dev \
         py-setuptools \
+        musl-dev \
         zip \
         gettext \
         gcc \
