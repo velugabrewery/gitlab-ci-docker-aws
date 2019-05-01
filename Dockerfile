@@ -25,7 +25,9 @@ RUN apk add --no-cache -v --virtual .build-deps \
         make \
         mysql-client \
         python \
+        python-dev \
         python3 \
+        python3-dev \
         py-setuptools \
         zip \
         gettext \
